@@ -1,0 +1,29 @@
+# LocalVidRen - Windows 专属依赖
+# Python 3.11+
+
+# 界面框架
+PyQt6>=6.6.0
+
+# 视频处理
+ffmpeg-python>=0.2.0
+
+# 语音识别
+faster-whisper>=1.0.0
+
+# 本地大模型
+llama-cpp-python>=0.2.56
+
+# API 请求
+requests>=2.31.0
+
+# 配置管理
+pyyaml>=6.0.1
+
+# 进度显示
+tqdm>=4.66.0
+
+# 系统通知
+pywin32>=306; sys_platform == 'win32'
+
+# 工具库
+python-dateutil>=2.8.2

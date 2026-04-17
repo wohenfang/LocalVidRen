@@ -1,0 +1,93 @@
+# LocalVidRen 配置文件
+
+# AI 模型配置
+model:
+  # 分析模式：local（本地）或 api（在线 API）
+  mode: local
+
+  # 音频模型配置
+  audio_model:
+    # 模型类型（固定为 faster-whisper）
+    type: faster-whisper
+    # 模型大小：tiny, base, small, medium
+    size: base
+    # 运行设备：auto, cpu, cuda
+    device: auto
+
+  # 视觉模型配置
+  visual_model:
+    # 模型类型：llama-cpp（本地 GGUF）或 openai-compatible（API）
+    type: llama-cpp
+    # 本地 GGUF 模型路径（使用绝对路径）
+    path: ""
+    # 运行设备：auto, cpu, cuda
+    device: auto
+    # API 配置（当 type 为 openai-compatible 时使用）
+    api_key: ""
+    base_url: "https://api.openai.com/v1"
+    model_name: "gpt-4v"
+
+  # 内容总结配置
+  summary:
+    # 总结长度：short, medium, long
+    length: short
+    # 总结风格：concise（简洁）, event（事件）, keyword（关键词）
+    style: concise
+
+# 视频配置
+video:
+  # 最大文件大小（MB）
+  max_size_mb: 500
+  # 关键帧提取间隔（秒）
+  keyframe_interval: 3
+  # 支持的格式
+  formats:
+    - ".mp4"
+    - ".mkv"
+    - ".avi"
+    - ".mov"
+    - ".flv"
+    - ".webm"
+
+# 重命名配置
+naming:
+  # 文件名模板：[summary], [date]_[summary], [prefix]_[summary]
+  template: "[summary].[ext]"
+  # 历史记录数量
+  max_history: 50
+
+# 处理配置
+processing:
+  # 并发处理数
+  concurrency: 2
+  # 最大重试次数
+  max_retries: 1
+  # 跳过已处理视频
+  skip_processed: true
+
+# 监控配置
+monitor:
+  # 监控文件夹列表
+  folders: []
+  # 监控延迟（秒）
+  delay_seconds: 10
+  # 是否递归监控子文件夹
+  recursive: true
+
+# 自动化配置
+automation:
+  # 开机自动启动
+  auto_start: false
+  # 最小化到系统托盘
+  minimize_to_tray: true
+  # 处理完成后自动关机
+  shutdown_after: false
+  # 显示系统通知
+  notify: true
+
+# 界面配置
+ui:
+  # 主题：light, dark, auto
+  theme: auto
+  # 字体大小
+  font_size: 10
